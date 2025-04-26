@@ -1,0 +1,29 @@
+﻿@model MyFirstMVCApplication.Models.RegisterModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+HTML Helper
+
+@*<form action="/register/index" method="post">
+    @Html.TextBoxFor(m => m.FirstName)
+
+
+    <button type="submit">Save</button>
+</form>*@
+
+@using (Html.BeginForm())
+{
+
+    @*<input type="text" id="FirstName" name="FirstName"/>*@
+
+    @Html.TextBoxFor(m => m.FirstName)
+
+
+    <button type="submit">Save</button>
+
+}
+
+

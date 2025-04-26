@@ -1,0 +1,116 @@
+﻿@model IEnumerable<MyFirstMVCApplication.Models.UserModel>
+@using MyFirstMVCApplication.Models
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@foreach (var item in ViewData["Message"] as List<UserModel>)
+{
+    <div>
+        @item
+    </div>
+}
+
+<br />
+<br />
+
+@Html.BeginForm()
+
+{
+
+<button type="submit"> Submit</button>
+
+}
+
+
+
+
+@foreach (var item in ViewBag.UserList)
+{
+    <div>
+        @item.UserName
+    </div>
+}
+
+
+@ViewData["Message"]
+
+
+@{
+    int a = 10;
+
+    int c = a * 10;
+
+
+
+}
+
+@*@if (Model.UserID)
+    {
+        @
+        <div>
+            @
+        </div>
+
+    }
+
+
+
+    @foreach (var item in Model)
+    {
+
+        @item.UserID
+
+
+
+        @item.UserName
+
+
+        <br />
+    }*@
+
+View >
+Razor
+ASPX
+
+<div>
+    @*This is my model Data ->  @Model.UserID*@
+</div>
+<br />
+<br />
+<br />
+<div>
+    This is a value of a -> @a
+</div>
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    </table>*@
