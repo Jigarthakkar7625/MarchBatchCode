@@ -3,27 +3,91 @@
     ViewBag.Title = "Index";
 }
 
+@Scripts.Render("~/bundles/jquery")
+
 <h2>Index</h2>
 
 HTML Helper
 
 @*<form action="/register/index" method="post">
-    @Html.TextBoxFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
 
 
-    <button type="submit">Save</button>
-</form>*@
+        <button type="submit">Save</button>
+    </form>*@
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Save", "Register", FormMethod.Post, new { @class = "clsRregister", @id = "frmRegister" }))
 {
 
     @*<input type="text" id="FirstName" name="FirstName"/>*@
 
-    @Html.TextBoxFor(m => m.FirstName)
+    @Html.LabelFor(m => m.FirstName)
+    <div>
+        @Html.TextBoxFor(m => m.FirstName)
+    </div>
+
+    <br />
+
+    @*@Html.DropDownListFor(x => x.UserId, new SelectList(ViewBag.UserList, "UserID", "UserName"))
+
+        <br />*@
+
+    @*@Html.DropDownListFor(x => x.UserId, new SelectList(Model.UserList, "UserID", "UserName"))*@
+
+    @Html.CheckBoxFor(x => x.IsActive)
+    @*@Html.CheckBoxFor(x => x.IsActive)*@
+
+
+    <br />
+    <label>Male</label>
+    @Html.RadioButtonFor(x => x.Gender, "Male")
+
+    <label>FeMale</label>
+    @Html.RadioButtonFor(x => x.Gender, "Female")
+
+    <br />
+    <label>T</label>
+    @Html.RadioButtonFor(x => x.LastName, "T")
+
+    <label>TDD</label>
+    @Html.RadioButtonFor(x => x.LastName, "TDD")
+
+
+    <br />
+    @Html.HiddenFor(x => x.UserId)
+
+    <br />
+    @Html.PasswordFor(x => x.Password)
+
 
 
     <button type="submit">Save</button>
 
 }
+
+
+<button type="button" onclick="Save()">Save12</button>
+
+<script type="text/javascript">
+    debugger
+    var abcss = $("#FirstName").val();
+
+    // Page load
+    $(document).ready(function () {
+        debugger
+        var abc = $("#FirstName").val();
+    })
+
+    function Save() {
+
+
+        debugger
+        var getValue = $("#FirstName").val(); // JQUERY >> # > ID, . >> Class
+        //$(".FirstName")
+    }
+
+
+
+</script>
 
 
