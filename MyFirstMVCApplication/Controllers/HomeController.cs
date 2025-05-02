@@ -16,6 +16,10 @@ namespace MyFirstMVCApplication.Controllers
         public ActionResult About()
         {
             var getData = TempData["Message"];
+
+            var username = Session["Email"];
+
+            var cookie = Request.Cookies["UserId"].Value;
             //TempData.Keep();
 
             ViewBag.Message = "Your application description page.";

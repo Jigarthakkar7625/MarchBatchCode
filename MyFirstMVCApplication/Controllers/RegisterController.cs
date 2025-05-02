@@ -14,6 +14,10 @@ namespace MyFirstMVCApplication.Controllers
         [HttpGet] // Data Get
         public ActionResult Index()
         {
+
+
+
+
             RegisterModel registerModel = new RegisterModel();
             registerModel.FirstName = "Jigar";
 
@@ -32,11 +36,21 @@ namespace MyFirstMVCApplication.Controllers
         [HttpPost] // Data save
         public ActionResult Save(RegisterModel registerModel)
         {
-            
+            // Login >
+            // Database Check username and password
+            // User >> Session store
+            Session["UserId"] = 10;
+            Session["Email"] = registerModel.Email;
+
+
+            HttpCookie httpCookie = new HttpCookie("UserId", "10");
+            httpCookie.Expires = DateTime.Now.AddDays(10);
+            Response.Cookies.Add(httpCookie);
+
             //RegisterModel registerModel = new RegisterModel();
             //registerModel.FirstName = "Jigar";
             //Save into database
-            return View(registerModel);
+            return RedirectToAction("About", "Home");
         }
     }
 }

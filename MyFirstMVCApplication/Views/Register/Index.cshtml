@@ -5,6 +5,15 @@
 
 @Scripts.Render("~/bundles/jquery")
 
+@Scripts.Render("~/bundles/jqueryval")
+
+
+<style type="text/css">
+    .clsSanjay {
+        color: red;
+    }
+</style>
+
 <h2>Index</h2>
 
 HTML Helper
@@ -23,10 +32,69 @@ HTML Helper
 
     @Html.LabelFor(m => m.FirstName)
     <div>
-        @Html.TextBoxFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "Please enter first name" })
+    </div>
+    <div>
+        @*@Html.ValidationMessageFor(m => m.FirstName, "Please enter First Name", new { @class = "clsSanjay" })*@
+
+        @Html.ValidationMessageFor(m => m.FirstName)
     </div>
 
     <br />
+
+
+    @Html.LabelFor(m => m.Email)
+    <div>
+        @Html.TextBoxFor(m => m.Email, new { @placeholder = "Please enter Email" })
+    </div>
+    <div>
+        @*@Html.ValidationMessageFor(m => m.FirstName, "Please enter First Name", new { @class = "clsSanjay" })*@
+
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <br />
+
+    @Html.LabelFor(m => m.UserName)
+    <div>
+        @Html.TextBoxFor(m => m.UserName, new { @placeholder = "Please enter User Name" })
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.UserName)
+    </div>
+
+
+    <br />
+
+    @Html.LabelFor(m => m.Age)
+    <div>
+        @Html.TextBoxFor(m => m.Age, new { @placeholder = "Please enter Age" })
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.Age)
+    </div>
+
+    <br />
+
+    @Html.LabelFor(m => m.Password)
+    <div>
+        @Html.PasswordFor(m => m.Password, new { @placeholder = "Please enter Password" })
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <br />
+
+    @Html.LabelFor(m => m.ConfirmPassword)
+    <div>
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @placeholder = "Please enter C Password" })
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+
 
     @*@Html.DropDownListFor(x => x.UserId, new SelectList(ViewBag.UserList, "UserID", "UserName"))
 
@@ -70,21 +138,21 @@ HTML Helper
 
 <script type="text/javascript">
     debugger
-    var abcss = $("#FirstName").val();
+    //var abcss = $("#FirstName").val();
 
-    // Page load
-    $(document).ready(function () {
-        debugger
-        var abc = $("#FirstName").val();
-    })
+    //// Page load
+    //$(document).ready(function () {
+    //    debugger
+    //    var abc = $("#FirstName").val();
+    //})
 
-    function Save() {
+    //function Save() {
 
 
-        debugger
-        var getValue = $("#FirstName").val(); // JQUERY >> # > ID, . >> Class
-        //$(".FirstName")
-    }
+    //    debugger
+    //    var getValue = $("#FirstName").val(); // JQUERY >> # > ID, . >> Class
+    //    //$(".FirstName")
+    //}
 
 
 
