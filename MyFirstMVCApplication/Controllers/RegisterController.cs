@@ -16,6 +16,53 @@ namespace MyFirstMVCApplication.Controllers
         {
 
 
+            using (var myContext = new MyDBJMAAEntities())
+            {
+                // var getData = myContext.Users.ToList();    // READ DATA GET
+
+                // Insert the record
+
+
+                //var user = new User();
+                //user.UserId = 252;
+                //user.UserName = "Harsh";
+                //user.IsActive = true;
+                //user.Salary = 50;
+                //user.Department = "IT";
+                //user.Gender = 2;
+
+                // ADD
+                //var departmentID = new DepartmentID();
+
+                //departmentID.DepartmentId1 = 1;
+                //departmentID.DepartmentName = "name";
+
+                //myContext.DepartmentIDs.Add(departmentID);
+                //myContext.SaveChanges(); // Database ma save thase
+
+
+                // Update
+
+                //var getData = myContext.DepartmentIDs.Where(x => x.DepartmentId1 == 4).FirstOrDefault();
+
+                //var getData = myContext.DepartmentIDs.FirstOrDefault(x => x.DepartmentId1 == 4);
+
+                //if (getData != null)
+                //{
+                //    getData.DepartmentName = "name12212212121";
+                //    myContext.SaveChanges(); // Database ma save thase
+                //}
+
+                var getData = myContext.DepartmentIDs.FirstOrDefault(x => x.DepartmentId1 == 5);
+                if (getData != null)
+                {
+                    myContext.DepartmentIDs.Remove(getData);
+                    myContext.SaveChanges();
+
+                }
+
+
+            }
 
 
             RegisterModel registerModel = new RegisterModel();

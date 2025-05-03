@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,16 +128,130 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AuditLog.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUDITTABLE.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Course.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentID.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DotNet.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpJimmy.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpJinalTable.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetMultipleData_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetTableMultiValuedFunction_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GETTABLES_Multi_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GETTABLES_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Jigar_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="MyFilterView.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyFilterView_Demo.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyFirstModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyFirstModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyFirstModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyFirstModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyFirstModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MyFirstSP_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyFirstView.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyFunction_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyTableReturn_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyTableValuedFunction1_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyTableValuedFunction_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyView12333.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchoolTable.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetData_Result.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAddress.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student_New.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserCopyNew.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserJMMY.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User_Address.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_20230603.cs">
+      <DependentUpon>MyFirstModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -140,8 +262,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="MyFirstModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MyFirstModel.Context.cs</LastGenOutput>
+      <DependentUpon>MyFirstModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="MyFirstModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyFirstModel.edmx</DependentUpon>
+      <LastGenOutput>MyFirstModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="MyFirstModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyFirstModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="MyFirstModel.edmx.diagram">
+      <DependentUpon>MyFirstModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -185,6 +324,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
