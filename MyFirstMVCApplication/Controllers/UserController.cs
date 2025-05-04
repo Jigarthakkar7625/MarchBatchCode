@@ -10,8 +10,32 @@ namespace MyFirstMVCApplication.Controllers
     public class UserController : Controller
     {
         // GET: User
+        // Return VIew()
+        //PartialView() -- DONE
+        // JsonREsult() -- DONE
+        //ContentResult()  -- DONE
+        // RedirectResult() --DONE
+        // RedirectActionResult() -- Done
+        // File Result()
+        // Emptry Result()
+
+
+        public RedirectResult RedirectURL()
+        {
+            return Redirect("https://www.showits.tech/");
+
+        }
+
+        public ActionResult RedirectToActionResult()
+        {
+            return RedirectToAction("ActionName", "ControllerName");
+        }
+
         public ActionResult Index()
         {
+
+
+
             List<UserModel> userModel = new List<UserModel> { new UserModel() { UserID = 1, UserName = "Jigar" },
              new UserModel() { UserID = 1, UserName = "Himani" },
             new UserModel() { UserID = 1, UserName = "Hitaxi" }};
@@ -42,6 +66,12 @@ namespace MyFirstMVCApplication.Controllers
             return View(userModel);
         }
 
+        public ContentResult GetText()
+        {
+            return Content("JKfdsf");
+
+        }
+
         [HttpPost]
         public ActionResult Index(FormCollection formCollection)
         {
@@ -49,5 +79,25 @@ namespace MyFirstMVCApplication.Controllers
 
             return RedirectToAction("About", "Home");
         }
+
+
+        public JsonResult GetData()
+        {
+            List<UserModel> userModel = new List<UserModel> { new UserModel() { UserID = 1, UserName = "Jigar" },
+             new UserModel() { UserID = 1, UserName = "Himani" },
+            new UserModel() { UserID = 1, UserName = "Hitaxi" }};
+
+            return Json(userModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public PartialViewResult MyPartialView()
+        {
+            UserModel userModel = new UserModel();
+            userModel.UserID = 1;
+            return PartialView("MyPartialView", userModel);
+        }
+        // Json >> 
+
+
     }
 }

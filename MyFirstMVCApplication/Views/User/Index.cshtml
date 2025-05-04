@@ -6,7 +6,15 @@
     ViewBag.Title = "Index";
 }
 
+@Scripts.Render("~/bundles/jquery")
+
 <h2>Index</h2>
+
+
+@*@Html.Partial("MyPartialView", Model)*@
+
+
+@Html.Action("MyPartialView", "User");
 
 
 @foreach (var item in ViewData["Message"] as List<UserModel>)
@@ -114,3 +122,37 @@ ASPX
     }
 
     </table>*@
+
+
+<button id="loadDataBtn">Get Data</button>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        debugger
+
+        $("#loadDataBtn").click(function () {
+            debugger
+            $.ajax({
+                url: '/User/GetData',
+                type: 'GET',
+                success: function (data) {
+                    debugger
+                    alert(data);
+                    //let html = "<ul>";
+                    //$.each(data, function (i, employee) {
+                    //    html += "<li>ID: " + employee.EmployeeId + ", Name: " + employee.EmployeeName + "</li>";
+                    //});
+                    //html += "</ul>";
+                    //$("#employeeContainer").html(html);
+                },
+                error: function () {
+                    alert("Failed to fetch employee data.");
+                }
+            });
+            return false;
+        });
+    });
+
+</script>
