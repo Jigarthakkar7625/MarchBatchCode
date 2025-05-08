@@ -37,10 +37,14 @@ HTML Helper
         <button type="submit">Save</button>
     </form>*@
 
-@using (Html.BeginForm("Save", "Register", FormMethod.Post, new { @class = "clsRregister", @id = "frmRegister" }))
+@using (Html.BeginForm("Save", "Register", FormMethod.Post, new { @class = "clsRregister", @id = "frmRegister", enctype = "multipart/form-data" }))
 {
 
     @*<input type="text" id="FirstName" name="FirstName"/>*@
+
+    <input type="file" name="httpPostedFile"/>
+
+
 
     @Html.LabelFor(m => m.FirstName)
     <div>

@@ -1,4 +1,5 @@
-﻿using MyFirstMVCApplication.Models;
+﻿using MyFirstMVCApplication.Auth;
+using MyFirstMVCApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +32,16 @@ namespace MyFirstMVCApplication.Controllers
             return RedirectToAction("ActionName", "ControllerName");
         }
 
+        //[ExceptionFilterAttr]
+        [ResultFilterAttr]
         public ActionResult Index()
         {
+            //int a = 0;
+            //int b = 10;
+            //var result = b / a;
 
+
+            Session["Roles"] = "Admin"; //Frim DB
 
 
             List<UserModel> userModel = new List<UserModel> { new UserModel() { UserID = 1, UserName = "Jigar" },
@@ -61,6 +69,7 @@ namespace MyFirstMVCApplication.Controllers
             ViewData["Message"] = userModel;
 
             // TempDataa>> Controller to controller
+
 
 
             return View(userModel);
@@ -96,6 +105,25 @@ namespace MyFirstMVCApplication.Controllers
             userModel.UserID = 1;
             return PartialView("MyPartialView", userModel);
         }
+
+
+        public FileResult DownloadFile()
+        {
+            var getFullPath = Server.MapPath("~/Files/Khushi_Data_Analyst.pdf");
+
+            byte[] fileByte = System.IO.File.ReadAllBytes(getFullPath);
+
+            return File(fileByte, "application/pdf", "Khushi.pdf");
+
+        }
+
+        public ActionResult DoNothing()
+        {
+            return new EmptyResult();
+        }
+
+
+
         // Json >> 
 
 

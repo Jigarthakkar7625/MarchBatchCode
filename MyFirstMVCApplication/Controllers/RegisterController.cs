@@ -1,6 +1,8 @@
-﻿using MyFirstMVCApplication.Models;
+﻿using MyFirstMVCApplication.Auth;
+using MyFirstMVCApplication.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,12 +13,27 @@ namespace MyFirstMVCApplication.Controllers
     {
         // GET: Register
 
+        // FILTERS >> VVVM
+
+        //Authentication > Check if user exist or not in our system
+        //Authorization > Roles and rights(Admin, HR, User, Customer, Seller)
+        // [Authorize]
+        //Action Filer >>> Most IMP
+        //Exception Filter >> Most IMP
+        // REsult filter
+        //[Authorize] // Attribute
+
+
+        //[AuthenticationFilterAttr]
+        //[AuthorizationFilterAttr("Admin, HR")]
+        [ActionFilterAttr]
         [HttpGet] // Data Get
         public ActionResult Index()
         {
 
 
             using (var myContext = new MyDBJMAAEntities())
+
             {
                 // var getData = myContext.Users.ToList();    // READ DATA GET
 
@@ -81,11 +98,34 @@ namespace MyFirstMVCApplication.Controllers
         }
 
         [HttpPost] // Data save
-        public ActionResult Save(RegisterModel registerModel)
+        public ActionResult Save(RegisterModel registerModel, HttpPostedFileBase httpPostedFile)
         {
             // Login >
             // Database Check username and password
             // User >> Session store
+
+            if (httpPostedFile != null && httpPostedFile.ContentLength > 0)
+            {
+                string fileName = Path.GetFileName(httpPostedFile.FileName);
+                string path = Server.MapPath("~/Files/" + fileName);
+
+                //httpPostedFile.
+
+                //httpPostedFile.SaveAs(path);
+
+            }
+
+            // FileID PK
+            // FileName
+            // ContentType 
+            // FileSize
+            // FilePath
+            // FileUploadDDate
+            // UserId >> FK (10)
+
+
+
+
             Session["UserId"] = 10;
             Session["Email"] = registerModel.Email;
 
