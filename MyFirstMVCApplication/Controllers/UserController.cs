@@ -73,6 +73,7 @@ namespace MyFirstMVCApplication.Controllers
 
 
             return View(userModel);
+
         }
 
         public ContentResult GetText()
