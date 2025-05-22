@@ -30,6 +30,8 @@ namespace MyMVCWebAPI.Provider
                             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
                             identity.AddClaim(new Claim("UserName", context.UserName));
                             identity.AddClaim(new Claim("Age", "16"));
+                            identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
+
                             context.Validated(identity);
 
                         }

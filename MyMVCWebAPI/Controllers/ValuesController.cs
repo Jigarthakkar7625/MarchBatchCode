@@ -16,8 +16,12 @@ namespace MyMVCWebAPI.Controllers
     // PATCH >> Partially >> 1 ke 2 field Update
     // DELETE >> Delete record
 
+    [Authorize(Roles = "User")]
+    [RoutePrefix("api/Values")]
     public class ValuesController : ApiController
     {
+        //[AllowAnonymous]
+        //[Route("GetErrorResult")]
         // GET api/values
         public IEnumerable<string> Get()
         {
