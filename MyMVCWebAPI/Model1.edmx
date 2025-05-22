@@ -1,0 +1,1368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MyDBJMAAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDBJMAA.dbo.AuditLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AuditLog">
+          <Key>
+            <PropertyRef Name="AuditLogId" />
+            <PropertyRef Name="Text" />
+          </Key>
+          <Property Name="AuditLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUDITTABLE">
+          <Key>
+            <PropertyRef Name="LOGID" />
+          </Key>
+          <Property Name="LOGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEXTData" Type="xml" Nullable="false" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseId" />
+          </Key>
+          <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="DepartmentID">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DotNet">
+          <Key>
+            <PropertyRef Name="DotnetId" />
+          </Key>
+          <Property Name="DotnetId" Type="int" Nullable="false" />
+          <Property Name="DotName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DotEmail" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'MyDBJMAA.dbo.EMp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EMp">
+          <Property Name="EMPID" Type="int" />
+          <Property Name="EMPName" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="EmpJimmy">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpCode" Type="varchar" MaxLength="50" />
+          <Property Name="EmpName" Type="varchar" MaxLength="50" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DOB" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EmpJinalTable">
+          <Key>
+            <PropertyRef Name="EmpJinalTableID" />
+          </Key>
+          <Property Name="EmpJinalTableID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpJinalTableName" Type="varchar" MaxLength="50" />
+          <Property Name="DepartmentId" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'MyDBJMAA.dbo.History' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="History">
+          <Property Name="History_Id" Type="int" />
+          <Property Name="History_name" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentMenuId" Type="int" Nullable="false" />
+          <Property Name="MenuName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SchoolTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="EmaId" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="50" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="Address2" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Student_New">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolName12" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="StudentAddress">
+          <Key>
+            <PropertyRef Name="StudentAddressId" />
+          </Key>
+          <Property Name="StudentAddressId" Type="int" Nullable="false" />
+          <Property Name="StudentAddress" Type="varchar" MaxLength="50" />
+          <Property Name="StudentId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDBJMAA.dbo.User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentUserID" Type="int" />
+          <Property Name="Gender" Type="int" />
+        </EntityType>
+        <EntityType Name="User_Address">
+          <Key>
+            <PropertyRef Name="User_Address_ID" />
+          </Key>
+          <Property Name="User_Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserCopyNew">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName1" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDBJMAA.dbo.UserJMMY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserJMMY">
+          <Key>
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="UserID" Type="tinyint" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'MyDBJMAA.dbo.UserJMMY123' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="UserJMMY123">
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDBJMAA.dbo.MyFilterView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MyFilterView">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="Salary" />
+            <PropertyRef Name="Department" />
+            <PropertyRef Name="ParentUserID" />
+            <PropertyRef Name="User_Address_ID" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Salary" Type="int" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentUserID" Type="int" Nullable="false" />
+          <Property Name="User_Address_ID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Expr1" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDBJMAA.dbo.MyFilterView_Demo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MyFilterView_Demo">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="Salary" />
+            <PropertyRef Name="Department" />
+            <PropertyRef Name="ParentUserID" />
+            <PropertyRef Name="User_Address_ID" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Salary" Type="int" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentUserID" Type="int" Nullable="false" />
+          <Property Name="User_Address_ID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Expr1" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDBJMAA.dbo.MyFirstView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MyFirstView">
+          <Key>
+            <PropertyRef Name="StudentId" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="50" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDBJMAA.dbo.MyView12333' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MyView12333">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+            <PropertyRef Name="CourseId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyDBJMAA.dbo.View_20230603' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_20230603">
+          <Key>
+            <PropertyRef Name="User_Address_ID" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="User_Address_ID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentUserID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Course_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpJimmy_DepartmentID">
+          <End Role="DepartmentID" Type="Self.DepartmentID" Multiplicity="0..1" />
+          <End Role="EmpJimmy" Type="Self.EmpJimmy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartmentID">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="EmpJimmy">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseId" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentAddress_SchoolTable">
+          <End Role="SchoolTable" Type="Self.SchoolTable" Multiplicity="0..1" />
+          <End Role="StudentAddress" Type="Self.StudentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchoolTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentAddress">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetMultipleData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="studentId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetTableMultiValuedFunction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UserName" Type="varchar" MaxLength="100" />
+                <Property Name="UserId" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GETTABLES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UserId" Type="int" Nullable="false" />
+                <Property Name="UserName" Type="varchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GETTABLES_Multi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UserName" Type="varchar" MaxLength="10" />
+                <Property Name="UserId" Type="int" />
+                <Property Name="AvinasColumn" Type="varchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetTotalCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="parameter" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GETUserCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="parameter" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Jigar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="MyCustomDemoFunction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="a" Type="int" Mode="In" />
+          <Parameter Name="b" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MyFirstSP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MyFunction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UserId" Type="int" Nullable="false" />
+                <Property Name="UserName" Type="varchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="MyFunction123" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="param" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MySP_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Action" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="MyTableReturn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="parameter" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="CourseId" Type="int" Nullable="false" />
+                <Property Name="CourseName" Type="varchar" MaxLength="50" />
+                <Property Name="EmployeeID" Type="int" />
+                <Property Name="IsActive" Type="bit" Nullable="false" />
+                <Property Name="Age" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="MyTableValuedFunction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="a" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UserId" Type="int" Nullable="false" />
+                <Property Name="UserName" Type="varchar" MaxLength="50" />
+                <Property Name="IsActive" Type="bit" />
+                <Property Name="Salary" Type="int" />
+                <Property Name="Department" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="MyTableValuedFunction1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="id" Type="int" />
+                <Property Name="Salary123" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="SP_GetData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Insert_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Salary" Type="int" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_SaveEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="Action" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_Transaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="MyDBJMAAModelStoreContainer">
+          <EntitySet Name="AUDITTABLE" EntityType="Self.AUDITTABLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartmentID" EntityType="Self.DepartmentID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DotNet" EntityType="Self.DotNet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpJimmy" EntityType="Self.EmpJimmy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpJinalTable" EntityType="Self.EmpJinalTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolTable" EntityType="Self.SchoolTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_New" EntityType="Self.Student_New" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentAddress" EntityType="Self.StudentAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Address" EntityType="Self.User_Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCopyNew" EntityType="Self.UserCopyNew" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuditLog" EntityType="Self.AuditLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AuditLog].[AuditLogId] AS [AuditLogId], 
+    [AuditLog].[Text] AS [Text]
+    FROM [dbo].[AuditLog] AS [AuditLog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [User].[UserId] AS [UserId], 
+    [User].[UserName] AS [UserName], 
+    [User].[IsActive] AS [IsActive], 
+    [User].[Salary] AS [Salary], 
+    [User].[Department] AS [Department], 
+    [User].[ParentUserID] AS [ParentUserID], 
+    [User].[Gender] AS [Gender]
+    FROM [dbo].[User] AS [User]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserJMMY" EntityType="Self.UserJMMY" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserJMMY].[UserID] AS [UserID], 
+    [UserJMMY].[UserName] AS [UserName], 
+    [UserJMMY].[IsActive] AS [IsActive]
+    FROM [dbo].[UserJMMY] AS [UserJMMY]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MyFilterView" EntityType="Self.MyFilterView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MyFilterView].[UserId] AS [UserId], 
+    [MyFilterView].[UserName] AS [UserName], 
+    [MyFilterView].[IsActive] AS [IsActive], 
+    [MyFilterView].[Salary] AS [Salary], 
+    [MyFilterView].[Department] AS [Department], 
+    [MyFilterView].[ParentUserID] AS [ParentUserID], 
+    [MyFilterView].[User_Address_ID] AS [User_Address_ID], 
+    [MyFilterView].[Address] AS [Address], 
+    [MyFilterView].[Expr1] AS [Expr1]
+    FROM [dbo].[MyFilterView] AS [MyFilterView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MyFilterView_Demo" EntityType="Self.MyFilterView_Demo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MyFilterView_Demo].[UserId] AS [UserId], 
+    [MyFilterView_Demo].[UserName] AS [UserName], 
+    [MyFilterView_Demo].[IsActive] AS [IsActive], 
+    [MyFilterView_Demo].[Salary] AS [Salary], 
+    [MyFilterView_Demo].[Department] AS [Department], 
+    [MyFilterView_Demo].[ParentUserID] AS [ParentUserID], 
+    [MyFilterView_Demo].[User_Address_ID] AS [User_Address_ID], 
+    [MyFilterView_Demo].[Address] AS [Address], 
+    [MyFilterView_Demo].[Expr1] AS [Expr1]
+    FROM [dbo].[MyFilterView_Demo] AS [MyFilterView_Demo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MyFirstView" EntityType="Self.MyFirstView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MyFirstView].[StudentId] AS [StudentId], 
+    [MyFirstView].[StudentName] AS [StudentName], 
+    [MyFirstView].[CourseId] AS [CourseId], 
+    [MyFirstView].[Expr1] AS [Expr1], 
+    [MyFirstView].[CourseName] AS [CourseName], 
+    [MyFirstView].[EmployeeID] AS [EmployeeID], 
+    [MyFirstView].[IsActive] AS [IsActive], 
+    [MyFirstView].[Age] AS [Age]
+    FROM [dbo].[MyFirstView] AS [MyFirstView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MyView12333" EntityType="Self.MyView12333" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MyView12333].[DepartmentId] AS [DepartmentId], 
+    [MyView12333].[DepartmentName] AS [DepartmentName], 
+    [MyView12333].[CourseId] AS [CourseId], 
+    [MyView12333].[CourseName] AS [CourseName], 
+    [MyView12333].[EmployeeID] AS [EmployeeID], 
+    [MyView12333].[IsActive] AS [IsActive], 
+    [MyView12333].[Age] AS [Age]
+    FROM [dbo].[MyView12333] AS [MyView12333]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_20230603" EntityType="Self.View_20230603" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_20230603].[User_Address_ID] AS [User_Address_ID], 
+    [View_20230603].[Address] AS [Address], 
+    [View_20230603].[UserId] AS [UserId], 
+    [View_20230603].[Expr1] AS [Expr1], 
+    [View_20230603].[UserName] AS [UserName], 
+    [View_20230603].[IsActive] AS [IsActive], 
+    [View_20230603].[Salary] AS [Salary], 
+    [View_20230603].[Department] AS [Department], 
+    [View_20230603].[ParentUserID] AS [ParentUserID]
+    FROM [dbo].[View_20230603] AS [View_20230603]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Course_Employee" Association="Self.FK_Course_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpJimmy_DepartmentID" Association="Self.FK_EmpJimmy_DepartmentID">
+            <End Role="DepartmentID" EntitySet="DepartmentID" />
+            <End Role="EmpJimmy" EntitySet="EmpJimmy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Course" Association="Self.FK_Student_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentAddress_SchoolTable" Association="Self.FK_StudentAddress_SchoolTable">
+            <End Role="SchoolTable" EntitySet="SchoolTable" />
+            <End Role="StudentAddress" EntitySet="StudentAddress" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyDBJMAAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="GetTableMultiValuedFunction_Result">
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="GETTABLES_Result">
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="GETTABLES_Multi_Result">
+          <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="AvinasColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="MyFunction_Result">
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="MyTableReturn_Result">
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="MyTableValuedFunction_Result">
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="MyTableValuedFunction1_Result">
+          <Property Name="id" Type="Int32" />
+          <Property Name="Salary123" Type="Int32" />
+        </ComplexType>
+        <EntityType Name="AUDITTABLE">
+          <Key>
+            <PropertyRef Name="LOGID" />
+          </Key>
+          <Property Name="LOGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEXTData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseId" />
+          </Key>
+          <Property Name="CourseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Course_Employee" FromRole="Course" ToRole="Employee" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Student_Course" FromRole="Course" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="DepartmentID">
+          <Key>
+            <PropertyRef Name="DepartmentId1" />
+          </Key>
+          <Property Name="DepartmentId1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmpJimmies" Relationship="Self.FK_EmpJimmy_DepartmentID" FromRole="DepartmentID" ToRole="EmpJimmy" />
+        </EntityType>
+        <EntityType Name="DotNet">
+          <Key>
+            <PropertyRef Name="DotnetId" />
+          </Key>
+          <Property Name="DotnetId" Type="Int32" Nullable="false" />
+          <Property Name="DotName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DotEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpJimmy">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DepartmentID1" Relationship="Self.FK_EmpJimmy_DepartmentID" FromRole="EmpJimmy" ToRole="DepartmentID" />
+        </EntityType>
+        <EntityType Name="EmpJinalTable">
+          <Key>
+            <PropertyRef Name="EmpJinalTableID" />
+          </Key>
+          <Property Name="EmpJinalTableID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpJinalTableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK_Course_Employee" FromRole="Employee" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentMenuId" Type="Int32" Nullable="false" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MenuDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SchoolTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmaId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="Int32" />
+          <NavigationProperty Name="StudentAddresses" Relationship="Self.FK_StudentAddress_SchoolTable" FromRole="SchoolTable" ToRole="StudentAddress" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Student_Course" FromRole="Student" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Student_New">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName12" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StudentAddress">
+          <Key>
+            <PropertyRef Name="StudentAddressId" />
+          </Key>
+          <Property Name="StudentAddressId" Type="Int32" Nullable="false" />
+          <Property Name="StudentAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentId" Type="Int32" />
+          <NavigationProperty Name="SchoolTable" Relationship="Self.FK_StudentAddress_SchoolTable" FromRole="StudentAddress" ToRole="SchoolTable" />
+        </EntityType>
+        <EntityType Name="User_Address">
+          <Key>
+            <PropertyRef Name="User_Address_ID" />
+          </Key>
+          <Property Name="User_Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserCopyNew">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AuditLog">
+          <Key>
+            <PropertyRef Name="AuditLogId" />
+            <PropertyRef Name="Text" />
+          </Key>
+          <Property Name="AuditLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentUserID" Type="Int32" />
+          <Property Name="Gender" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserJMMY">
+          <Key>
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="UserID" Type="Byte" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MyFilterView">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="Salary" />
+            <PropertyRef Name="Department" />
+            <PropertyRef Name="ParentUserID" />
+            <PropertyRef Name="User_Address_ID" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Salary" Type="Int32" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentUserID" Type="Int32" Nullable="false" />
+          <Property Name="User_Address_ID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Expr1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MyFilterView_Demo">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="Salary" />
+            <PropertyRef Name="Department" />
+            <PropertyRef Name="ParentUserID" />
+            <PropertyRef Name="User_Address_ID" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Salary" Type="Int32" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentUserID" Type="Int32" Nullable="false" />
+          <Property Name="User_Address_ID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Expr1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MyFirstView">
+          <Key>
+            <PropertyRef Name="StudentId" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MyView12333">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+            <PropertyRef Name="CourseId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_20230603">
+          <Key>
+            <PropertyRef Name="User_Address_ID" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="User_Address_ID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentUserID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Course_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseId" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpJimmy_DepartmentID">
+          <End Role="DepartmentID" Type="Self.DepartmentID" Multiplicity="0..1" />
+          <End Role="EmpJimmy" Type="Self.EmpJimmy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartmentID">
+              <PropertyRef Name="DepartmentId1" />
+            </Principal>
+            <Dependent Role="EmpJimmy">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentAddress_SchoolTable">
+          <End Role="SchoolTable" Type="Self.SchoolTable" Multiplicity="0..1" />
+          <End Role="StudentAddress" Type="Self.StudentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchoolTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentAddress">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MyDBJMAAEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AUDITTABLEs" EntityType="Self.AUDITTABLE" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="DepartmentIDs" EntityType="Self.DepartmentID" />
+          <EntitySet Name="DotNets" EntityType="Self.DotNet" />
+          <EntitySet Name="EmpJimmies" EntityType="Self.EmpJimmy" />
+          <EntitySet Name="EmpJinalTables" EntityType="Self.EmpJinalTable" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="SchoolTables" EntityType="Self.SchoolTable" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Student_New" EntityType="Self.Student_New" />
+          <EntitySet Name="StudentAddresses" EntityType="Self.StudentAddress" />
+          <EntitySet Name="User_Address" EntityType="Self.User_Address" />
+          <EntitySet Name="UserCopyNews" EntityType="Self.UserCopyNew" />
+          <EntitySet Name="AuditLogs" EntityType="Self.AuditLog" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserJMMies" EntityType="Self.UserJMMY" />
+          <EntitySet Name="MyFilterViews" EntityType="Self.MyFilterView" />
+          <EntitySet Name="MyFilterView_Demo" EntityType="Self.MyFilterView_Demo" />
+          <EntitySet Name="MyFirstViews" EntityType="Self.MyFirstView" />
+          <EntitySet Name="MyView12333" EntityType="Self.MyView12333" />
+          <EntitySet Name="View_20230603" EntityType="Self.View_20230603" />
+          <AssociationSet Name="FK_Course_Employee" Association="Self.FK_Course_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Course" Association="Self.FK_Student_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpJimmy_DepartmentID" Association="Self.FK_EmpJimmy_DepartmentID">
+            <End Role="DepartmentID" EntitySet="DepartmentIDs" />
+            <End Role="EmpJimmy" EntitySet="EmpJimmies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentAddress_SchoolTable" Association="Self.FK_StudentAddress_SchoolTable">
+            <End Role="SchoolTable" EntitySet="SchoolTables" />
+            <End Role="StudentAddress" EntitySet="StudentAddresses" />
+          </AssociationSet>
+          <FunctionImport Name="GetTableMultiValuedFunction" IsComposable="true" ReturnType="Collection(MyDBJMAAModel.GetTableMultiValuedFunction_Result)" />
+          <FunctionImport Name="GETTABLES" IsComposable="true" ReturnType="Collection(MyDBJMAAModel.GETTABLES_Result)" />
+          <FunctionImport Name="GETTABLES_Multi" IsComposable="true" ReturnType="Collection(MyDBJMAAModel.GETTABLES_Multi_Result)" />
+          <FunctionImport Name="MyFunction" IsComposable="true" ReturnType="Collection(MyDBJMAAModel.MyFunction_Result)" />
+          <FunctionImport Name="MyTableReturn" IsComposable="true" ReturnType="Collection(MyDBJMAAModel.MyTableReturn_Result)">
+            <Parameter Name="parameter" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MyTableValuedFunction" IsComposable="true" ReturnType="Collection(MyDBJMAAModel.MyTableValuedFunction_Result)">
+            <Parameter Name="a" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MyTableValuedFunction1" IsComposable="true" ReturnType="Collection(MyDBJMAAModel.MyTableValuedFunction1_Result)" />
+          <FunctionImport Name="GetMultipleData" ReturnType="Collection(MyDBJMAAModel.GetMultipleData_Result)">
+            <Parameter Name="studentId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Jigar" ReturnType="Collection(MyDBJMAAModel.Jigar_Result)" />
+          <FunctionImport Name="MyFirstSP" ReturnType="Collection(MyDBJMAAModel.MyFirstSP_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MySP_Insert">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetData" ReturnType="Collection(MyDBJMAAModel.SP_GetData_Result)" />
+          <FunctionImport Name="SP_Insert_User">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Salary" Mode="In" Type="Int32" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SaveEmployee">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Transaction">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetMultipleData_Result">
+          <Property Type="Int32" Name="CourseId" Nullable="false" />
+          <Property Type="String" Name="CourseName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Int32" Name="Age" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Jigar_Result">
+          <Property Type="Int32" Name="AuditLogId" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="MyFirstSP_Result">
+          <Property Type="Int32" Name="id" Nullable="true" />
+          <Property Type="Int32" Name="Salary123" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_GetData_Result">
+          <Property Type="Int32" Name="StudentId" Nullable="false" />
+          <Property Type="String" Name="StudentName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CourseId" Nullable="true" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address2" Nullable="true" MaxLength="20" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyDBJMAAModelStoreContainer" CdmEntityContainer="MyDBJMAAEntities1">
+          <EntitySetMapping Name="AUDITTABLEs">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.AUDITTABLE">
+              <MappingFragment StoreEntitySet="AUDITTABLE">
+                <ScalarProperty Name="LOGID" ColumnName="LOGID" />
+                <ScalarProperty Name="TEXTData" ColumnName="TEXTData" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartmentIDs">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.DepartmentID">
+              <MappingFragment StoreEntitySet="DepartmentID">
+                <ScalarProperty Name="DepartmentId1" ColumnName="DepartmentId" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DotNets">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.DotNet">
+              <MappingFragment StoreEntitySet="DotNet">
+                <ScalarProperty Name="DotnetId" ColumnName="DotnetId" />
+                <ScalarProperty Name="DotName" ColumnName="DotName" />
+                <ScalarProperty Name="DotEmail" ColumnName="DotEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpJimmies">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.EmpJimmy">
+              <MappingFragment StoreEntitySet="EmpJimmy">
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpJinalTables">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.EmpJinalTable">
+              <MappingFragment StoreEntitySet="EmpJinalTable">
+                <ScalarProperty Name="EmpJinalTableID" ColumnName="EmpJinalTableID" />
+                <ScalarProperty Name="EmpJinalTableName" ColumnName="EmpJinalTableName" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuDescription" ColumnName="MenuDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolTables">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.SchoolTable">
+              <MappingFragment StoreEntitySet="SchoolTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmaId" ColumnName="EmaId" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_New">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.Student_New">
+              <MappingFragment StoreEntitySet="Student_New">
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoolName12" ColumnName="SchoolName12" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentAddresses">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.StudentAddress">
+              <MappingFragment StoreEntitySet="StudentAddress">
+                <ScalarProperty Name="StudentAddressId" ColumnName="StudentAddressId" />
+                <ScalarProperty Name="StudentAddress1" ColumnName="StudentAddress" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Address">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.User_Address">
+              <MappingFragment StoreEntitySet="User_Address">
+                <ScalarProperty Name="User_Address_ID" ColumnName="User_Address_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCopyNews">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.UserCopyNew">
+              <MappingFragment StoreEntitySet="UserCopyNew">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName1" ColumnName="UserName1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuditLogs">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.AuditLog">
+              <MappingFragment StoreEntitySet="AuditLog">
+                <ScalarProperty Name="AuditLogId" ColumnName="AuditLogId" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ParentUserID" ColumnName="ParentUserID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserJMMies">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.UserJMMY">
+              <MappingFragment StoreEntitySet="UserJMMY">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyFilterViews">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.MyFilterView">
+              <MappingFragment StoreEntitySet="MyFilterView">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ParentUserID" ColumnName="ParentUserID" />
+                <ScalarProperty Name="User_Address_ID" ColumnName="User_Address_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyFilterView_Demo">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.MyFilterView_Demo">
+              <MappingFragment StoreEntitySet="MyFilterView_Demo">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ParentUserID" ColumnName="ParentUserID" />
+                <ScalarProperty Name="User_Address_ID" ColumnName="User_Address_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyFirstViews">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.MyFirstView">
+              <MappingFragment StoreEntitySet="MyFirstView">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyView12333">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.MyView12333">
+              <MappingFragment StoreEntitySet="MyView12333">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_20230603">
+            <EntityTypeMapping TypeName="MyDBJMAAModel.View_20230603">
+              <MappingFragment StoreEntitySet="View_20230603">
+                <ScalarProperty Name="User_Address_ID" ColumnName="User_Address_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ParentUserID" ColumnName="ParentUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="MyDBJMAAModel.Store.GetTableMultiValuedFunction" FunctionImportName="GetTableMultiValuedFunction">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.GetTableMultiValuedFunction_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MyDBJMAAModel.Store.GETTABLES" FunctionImportName="GETTABLES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.GETTABLES_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MyDBJMAAModel.Store.GETTABLES_Multi" FunctionImportName="GETTABLES_Multi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.GETTABLES_Multi_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AvinasColumn" ColumnName="AvinasColumn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MyDBJMAAModel.Store.MyFunction" FunctionImportName="MyFunction">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.MyFunction_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MyDBJMAAModel.Store.MyTableReturn" FunctionImportName="MyTableReturn">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.MyTableReturn_Result">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MyDBJMAAModel.Store.MyTableValuedFunction" FunctionImportName="MyTableValuedFunction">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.MyTableValuedFunction_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MyDBJMAAModel.Store.MyTableValuedFunction1" FunctionImportName="MyTableValuedFunction1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.MyTableValuedFunction1_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Salary123" ColumnName="Salary123" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetMultipleData" FunctionName="MyDBJMAAModel.Store.GetMultipleData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.GetMultipleData_Result">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Jigar" FunctionName="MyDBJMAAModel.Store.Jigar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.Jigar_Result">
+                <ScalarProperty Name="AuditLogId" ColumnName="AuditLogId" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MyFirstSP" FunctionName="MyDBJMAAModel.Store.MyFirstSP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.MyFirstSP_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Salary123" ColumnName="Salary123" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MySP_Insert" FunctionName="MyDBJMAAModel.Store.MySP_Insert" />
+          <FunctionImportMapping FunctionImportName="SP_GetData" FunctionName="MyDBJMAAModel.Store.SP_GetData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyDBJMAAModel.SP_GetData_Result">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Insert_User" FunctionName="MyDBJMAAModel.Store.SP_Insert_User" />
+          <FunctionImportMapping FunctionImportName="SP_SaveEmployee" FunctionName="MyDBJMAAModel.Store.SP_SaveEmployee" />
+          <FunctionImportMapping FunctionImportName="Sp_Transaction" FunctionName="MyDBJMAAModel.Store.Sp_Transaction" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
