@@ -25,17 +25,37 @@ namespace MyMVCWebAPI
         public void Configuration(IAppBuilder app)
         {
             //PublicClientId = "self";
-            OAuthOptions = new OAuthAuthorizationServerOptions
-            {
-                TokenEndpointPath = new PathString("/Token"), // Path
-                Provider = new OAuthProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                AllowInsecureHttp = true,
-            };
+
+            app.UseJwtBearerAuthentication(
+                new JwtBearerAuthenticationOptions
+                {
+                    AuthenticationMode = AuthenticationMode.Active,
+                    TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidIssuer = "https://localhost:44318",
+                        ValidateAudience = true,
+                        ValidAudience = "https://localhost:44318",
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("E9DB7E89123F52A9F2DB04EF04C7FE88")),
+                        
+
+                    }
+                }
+
+            );
+
+
+            //OAuthOptions = new OAuthAuthorizationServerOptions
+            //{
+            //    TokenEndpointPath = new PathString("/Token"), // Path
+            //    Provider = new OAuthProvider(),
+            //    AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+            //    AllowInsecureHttp = true,
+            //};
 
             //app.UseOAuthBearerTokens(OAuthOptions);
-            app.UseOAuthAuthorizationServer(OAuthOptions);
-     
+           // app.UseOAuthAuthorizationServer(OAuthOptions);
+
         }
     }
 }

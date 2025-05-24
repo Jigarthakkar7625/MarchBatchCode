@@ -23,6 +23,20 @@ namespace MyMVCWebAPI.Controllers
         //[AllowAnonymous]
         //[Route("GetErrorResult")]
         // GET api/values
+
+
+        [Route("GetItemdata")]
+        [HttpGet]
+        public IHttpActionResult GetItemdata()
+        {
+
+            // Username and password >> Database ma check karvanu and user na data pass karvana 
+            //var getToken = Token();
+            //var getToken = Token(User);
+            return Ok();
+
+        }
+
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
